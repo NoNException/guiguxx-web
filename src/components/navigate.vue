@@ -49,7 +49,8 @@
               <Icon type="ios-navigate"></Icon>
              发布助手
             </template>
-            <Menu-item name="1-1">项目配置</Menu-item>
+            <!-- to 属性可以进行路由跳转 -->
+            <Menu-item name="1-1" to="/aa">项目配置</Menu-item> 
             <Menu-item name="1-2">服务配置</Menu-item>
             <Menu-item name="1-3">发布服务</Menu-item>
           </Submenu>
@@ -81,7 +82,9 @@
           </Breadcrumb>
         </div>
         <div class="layout-content">
-          <div class="layout-content-main">内容区域</div>
+          <div class="layout-content-main">
+             <router-view></router-view>
+          </div>
         </div>
         <div class="layout-copy">2011-2016 &copy; TalkingData</div>
       </i-col>
