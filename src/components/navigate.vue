@@ -8,7 +8,7 @@
   padding: 10px 15px 0;
 }
 .layout-content {
-  min-height: 200px;
+  min-height: 75vh;
   margin: 15px;
   overflow: hidden;
   background: #fff;
@@ -40,7 +40,7 @@
 </style>
 <template>
   <div class="layout">
-    <Row type="flex">
+    <Row type="flex" class="height_100_vh">
       <i-col span="5" class="layout-menu-left">
         <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']">
           <div class="layout-logo-left"></div>
@@ -50,7 +50,7 @@
              发布助手
             </template>
             <!-- to 属性可以进行路由跳转 -->
-            <Menu-item name="1-1" to="/aa">项目配置</Menu-item> 
+            <Menu-item name="1-1" to="/aa">项目配置</Menu-item>
             <Menu-item name="1-2">服务配置</Menu-item>
             <Menu-item name="1-3">发布服务</Menu-item>
           </Submenu>
@@ -81,8 +81,8 @@
             <Breadcrumb-item>某应用</Breadcrumb-item>
           </Breadcrumb>
         </div>
-        <div class="layout-content">
-          <div class="layout-content-main">
+        <div class="layout-content" height="80vh">
+          <div class="layout-content-main" >
              <router-view></router-view>
           </div>
         </div>
