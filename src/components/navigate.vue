@@ -50,9 +50,8 @@
              发布助手
             </template>
             <!-- to 属性可以进行路由跳转 -->
-            <Menu-item name="1-1" to="/aa">项目配置</Menu-item>
-            <Menu-item name="1-2">服务配置</Menu-item>
-            <Menu-item name="1-3">发布服务</Menu-item>
+            <Menu-item name="1-1" to="/projectSetting">项目配置</Menu-item>
+            <Menu-item name="1-3" to="/codeRelease">发布服务</Menu-item>
           </Submenu>
           <Submenu name="2">
             <template slot="title">

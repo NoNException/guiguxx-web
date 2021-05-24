@@ -27,3 +27,15 @@
         </FormItem>
   </Form>
 </template>
+
+<script>
+
+
+export default {
+data() {
+    return {
+      projectModifyForm :{}
+    } 
+  },
+}
+</script>

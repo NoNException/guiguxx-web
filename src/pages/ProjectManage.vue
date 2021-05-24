@@ -1,17 +1,7 @@
 <template>
   <Row :gutter="16">
-    <Col span="5">
-    <Input placeholder="请输入...">
-    <Button slot="append" icon="ios-search" />
-    </Input>
-    <br />
-    <ul class="list-group">
-      <li class="list-group-item">weidian-shop</li>
-      <li class="list-group-item">weidian-cms</li>
-      <li class="list-group-item">weidian-psp</li>
-      <li class="list-group-item">weidiango-pps</li>
-      <li class="list-group-item">weidiango-order</li>
-    </ul>
+    <Col span="5" >
+        <ProjectList/>
     </Col>
     <Col span="19">
     <Row>
@@ -27,7 +17,12 @@
     <Row>
       <Row>
         <Col span="4">项目配置</Col>
-        <Col span="4" offset="16"> <Button type="info" size="small">修改配置</Button></Col>
+        <Col span="4" offset="16">
+            <Button type="info" size="small" @click="modifyProject = true">修改配置</Button>
+        </Col>
+        <Drawer title="修改配置" :closable="false" v-model="modifyProject" width='25'>
+          <ProjectModify> </ProjectModify>
+        </Drawer>
       </Row>
       <Row>
         <Col span="4">项目名称</Col>
@@ -71,7 +66,7 @@
         <br />
         <Row>
           <Table :columns="columns1" :data="data1">
-            <template slot-scope="{ row, index }" slot="operate">
+            <template slot-scope="{ index }" slot="operate">
               <Button type="primary" size="small" @click="show(index)">Update</Button>
               <Button type="error" size="small" @click="remove(index)">Delete</Button>
             </template>
@@ -85,13 +80,14 @@
 </template>
 <script>
 import ProjectModify from "./ProjectModify"
-
+import ProjectList from "./ProjectList"
 export default {
 
   data() {
     return {
       addProject: false,
       deleteProject: false,
+      modifyProject: false,
       columns1: [
         { title: "No.", key: "numbers" },
         { title: "Ip Address", key: "ipAddress" },
@@ -120,7 +116,8 @@ export default {
     };
   },
   components: {
-    "ProjectModify": ProjectModify
+    "ProjectModify": ProjectModify,
+    "ProjectList": ProjectList,
   }
 };
 </script>
