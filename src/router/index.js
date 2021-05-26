@@ -4,6 +4,10 @@ import navigate from '@/components/navigate'
 import ProjectManage from '@/pages/ProjectManage'
 import CodeRelease from '@/pages/CodeRelease'
 import CodeReleaseDetail from '@/pages/CodeReleaseDetail'
+import CodeMerge from '@/pages/CodeMerge'
+import CodePackage from '@/pages/CodePackage'
+import CodeDeploy from '@/pages/CodeDeploy'
+import CodeClean from '@/pages/CodeClean'
 Vue.use(Router)
 
 export default new Router({
@@ -19,7 +23,23 @@ export default new Router({
             component: CodeRelease
         }, {
             path: 'codeReleaseDetail',
-            component: CodeReleaseDetail
+            component: CodeReleaseDetail,
+            children: [{
+                    path: 'codeMerge',
+                    component: CodeMerge
+                },
+                {
+                    path: 'codePackage',
+                    component: CodePackage
+                },
+                {
+                    path: 'codeDeploy',
+                    component: CodeDeploy
+                }, {
+                    path: 'codeClean',
+                    component: CodeClean
+                }
+            ]
         }]
     }]
 })

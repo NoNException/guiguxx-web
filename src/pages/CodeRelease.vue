@@ -8,7 +8,7 @@
       <Col span="4">项目名称</Col>
       <Col span="5">weidian-shop</Col>
       <Col span="3" offset='12'>
-        <Button type="primary" size="small" to="/codeReleaseDetail">发布项目</Button>
+        <Button type="primary" size="small" to="/codeReleaseDetail/codeMerge">发布项目</Button>
       </Col>
     </Row>
     <Row>
