@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Input placeholder="输入项目名称...">
-    <Button slot="append" icon="ios-search" />
+    <Input placeholder="输入项目名称..." @on-focus="projectNameInSearch=''" v-model="projectNameInSearch">
+    <Button slot="append" icon="ios-search" @click="searchProjectByName" />
     </Input>
     <br />
     <ul class="list-group">
@@ -19,20 +19,29 @@ export default {
   data() {
     return {
       projects: [],
-      projectTitle: [
-        { title: "项目列表", key: "projectName" }
-      ]
+      projectNameInSearch: ""
+    }
+  },
+  methods: {
+    searchProjectByName: function () {
+      this.projects = [];
+      this.selectProjectListByName(this.projectNameInSearch);
+
+    },
+    selectProjectListByName(projectName) {
+      var url = "";
+      if (projectName == null || projectName === '' || projectName == undefined) {
+        url = "http://127.0.0.1:7777/guiguxx/projects";
+      } else {
+        url = "http://localhost:7777/guiguxx/projects/search/" + projectName;
+      }
+      axios.get(url).then(response => {
+        this.projects = response.data.data;
+      });
     }
   },
   mounted() {
-    axios.get("http://127.0.0.1:7777/guiguxx/projects").then(
-      response => {
-        this.projects = response.data.data;
-      }
-    )
+    this.selectProjectListByName();
   }
 }
-
-
-
 </script>
